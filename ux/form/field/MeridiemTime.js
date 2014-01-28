@@ -14,11 +14,11 @@
  *
  * Example definition of a meridiem time field:
  *
- *     {
- *         xtype: 'meridiemtime',
- *         fieldLabel: 'Time',
- *         captureSeconds: false
- *     }
+ *	 {
+ *		 xtype: 'meridiemtime',
+ *		 fieldLabel: 'Time',
+ *		 captureSeconds: false
+ *	 }
  */
 Ext.define('Ext.ux.form.field.MeridiemTime', {
 	extend: 'Ext.form.field.Picker',
@@ -85,31 +85,31 @@ Ext.define('Ext.ux.form.field.MeridiemTime', {
 	 * The maximum allowed time. Can be either a Javascript date object or a string date in a valid format.
 	 */
 	/**
-     * @cfg {String} submitFormat
-     * The date format string which will be submitted to the server. The format must be valid according to
-     * {@link Ext.Date#parse}.
-     *
-     * Defaults to {@link #format}.
-     */
+	 * @cfg {String} submitFormat
+	 * The date format string which will be submitted to the server. The format must be valid according to
+	 * {@link Ext.Date#parse}.
+	 *
+	 * Defaults to {@link #format}.
+	 */
 	/**
 	 * @cfg {Boolean} selectOnTab
 	 * Whether the Tab key should select the currently highlighted item.
 	 */
 	selectOnTab: true,
 	/**
-     * @cfg {Number} maxLength
-     * Maximum input field length allowed by validation. This behavior is intended to
-     * provide instant feedback to the user by improving usability to allow pasting and editing or
+	 * @cfg {Number} maxLength
+	 * Maximum input field length allowed by validation. This behavior is intended to
+	 * provide instant feedback to the user by improving usability to allow pasting and editing or
 	 * overtyping and back tracking.  For this field the maxLength defaults to 5 if captureSeconds
 	 * is false and 8 if captureSeconds is true.
 	 *
 	 * To restrict the maximum number of characters that can be entered into the field use the
-     * **{@link Ext.form.field.Text#enforceMaxLength enforceMaxLength}** option.
-     */
+	 * **{@link Ext.form.field.Text#enforceMaxLength enforceMaxLength}** option.
+	 */
 	/**
-     * @cfg {Boolean} enforceMaxLength
-     * True to set the maxLength property on the underlying input field. Defaults to true
-     */
+	 * @cfg {Boolean} enforceMaxLength
+	 * True to set the maxLength property on the underlying input field. Defaults to true
+	 */
 	enforceMaxLength: true,
 	initComponent: function() {
 		var me = this,
@@ -162,13 +162,13 @@ Ext.define('Ext.ux.form.field.MeridiemTime', {
 		me.callParent();
 	},
 	/**
-     * Clears out the date values and seconds if capture seconds is false.
+	 * Clears out the date values and seconds if capture seconds is false.
 	 *
-     * @protected
-     * @param {Object} value The initial value
-     * @return {Object} The modified initial value
-     */
-    transformOriginalValue: function(value) {
+	 * @protected
+	 * @param {Object} value The initial value
+	 * @return {Object} The modified initial value
+	 */
+	transformOriginalValue: function(value) {
 		return this.clearDate(value);
 	},
 	initEvents: function() {
@@ -219,11 +219,11 @@ Ext.define('Ext.ux.form.field.MeridiemTime', {
 	 * @private
 	 */
 	getSubmitValue: function() {
-        var format = this.submitFormat || this.format,
-            value = this.getValue();
+		var format = this.submitFormat || this.format,
+			value = this.getValue();
 
-        return value ? Ext.Date.format(value, format) : '';
-    },
+		return value ? Ext.Date.format(value, format) : '';
+	},
 	/**
 	 * @private
 	 */
@@ -397,14 +397,14 @@ Ext.define('Ext.ux.form.field.MeridiemTime', {
 		return picker;
 	},
 	/**
-     * If the passed in value is a date, resets the month/day/year values to the current date and clears the seoncds
+	 * If the passed in value is a date, resets the month/day/year values to the current date and clears the seoncds
 	 * if the catpureSeconds config is set to false.
-     *
-     * @param {Date} date The date
-     * @return {Date} The date with the day/month/year cleared out.
-     */
-    clearDate: function(date) {
-        var me = this,
+	 *
+	 * @param {Date} date The date
+	 * @return {Date} The date with the day/month/year cleared out.
+	 */
+	clearDate: function(date) {
+		var me = this,
 			today;
 
 		if (Ext.isDate(date)) {
@@ -420,7 +420,7 @@ Ext.define('Ext.ux.form.field.MeridiemTime', {
 		}
 
 		return date;
-    },
+	},
 	getTriggerMarkup: function() {
 		var me = this,
 			prefix = Ext.baseCSSPrefix;
@@ -579,28 +579,28 @@ Ext.define('Ext.ux.form.field.MeridiemTime', {
 	 * @private
 	 */
 	onFieldFocus: function() {
-        var me = this,
-            focusCls = me.focusCls,
-            meridiemEl = me.getMeridiemField();
+		var me = this,
+			focusCls = me.focusCls,
+			meridiemEl = me.getMeridiemField();
 
 		// Add the focus class to the meridiem field
 		if (focusCls && meridiemEl) {
 			meridiemEl.addCls(Ext.baseCSSPrefix + focusCls);
 		}
-    },
+	},
 	/**
 	 * @private
 	 */
 	onFieldBlur: function() {
-        var me = this,
-            focusCls = me.focusCls,
-            meridiemEl = me.getMeridiemField();
+		var me = this,
+			focusCls = me.focusCls,
+			meridiemEl = me.getMeridiemField();
 
 		// Remove the focus class from the meridiem field
 		if (focusCls && meridiemEl) {
-            meridiemEl.removeCls(Ext.baseCSSPrefix + focusCls);
-        }
-    },
+			meridiemEl.removeCls(Ext.baseCSSPrefix + focusCls);
+		}
+	},
 	/**
 	 * @private
 	 */
